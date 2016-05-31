@@ -1,4 +1,9 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+tasks.whenTaskAdded { task ->
+    if (task.name.equals("lint")) {
+        task.enabled = false
+    }
+}
 
 buildscript {
     repositories {
@@ -6,15 +11,22 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.1.0'
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '3.0.1'
     }
 }
 
+
 allprojects {
     repositories {
+        mavenCentral()
         jcenter()
+        maven {
+            url 'http://192.168.200.150:8081/artifactory/libs-release-local'
+            credentials {
+                username = artifactory_username
+                password = artifactory_password
+            }
+        }
     }
 }
 
