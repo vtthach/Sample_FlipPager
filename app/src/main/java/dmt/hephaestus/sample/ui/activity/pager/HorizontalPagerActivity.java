@@ -12,7 +12,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-import dmt.hephaestus.adapter.helper.FragmentPagerHelper;
+import dmt.hephaestus.adapter.helper.HorizontalFragmentPagerHelper;
 import dmt.hephaestus.adapter.helper.HorizontalFragmentPagerHelperImpl;
 import dmt.hephaestus.sample.app.Constants;
 import dmt.hephaestus.sample.ui.activity.base.BaseActivity;
@@ -40,7 +40,7 @@ public class HorizontalPagerActivity extends BaseActivity {
     Button btnHome;
 
     private Unbinder unbinder;
-    FragmentPagerHelper horizontalPagerHelper;
+    HorizontalFragmentPagerHelper horizontalPagerHelper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,18 +52,10 @@ public class HorizontalPagerActivity extends BaseActivity {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-
-        horizontalPagerHelper.goToPage(1);
-    }
-
-    @Override
     protected void onDestroy() {
         super.onDestroy();
         unbinder.unbind();
     }
-
 
     private void init() {
         viewPager.setPageTransformer(false, new ZoomOutSlideTransformer());
@@ -75,21 +67,19 @@ public class HorizontalPagerActivity extends BaseActivity {
         // previous pages will be showed
         viewPager.setPageMargin(-368);
 
-        //default view pager is not allowed swipe
-        //viewPager.setAllowedSwipeDirection(SwipeDirection.NONE);
-
-        //horizontalPagerHelper = new SimpleFragmentPagerHelperImpl(viewPager, getSupportFragmentManager());
-        //horizontalPagerHelper = new FragmentPagerHelperImpl(viewPager, getSupportFragmentManager());
         horizontalPagerHelper = new HorizontalFragmentPagerHelperImpl(viewPager, getSupportFragmentManager()) {
             @Override
             public void onAddFirstFlipPage(Fragment f, Class<?> cls, Bundle b) {
-                addFragment(viewPager.getAdapter().getCount());
-                addFragment(viewPager.getAdapter().getCount());
-                addFragment(viewPager.getAdapter().getCount());
-                addFragment(viewPager.getAdapter().getCount());
-
+                ContainerFragment fm = (ContainerFragment) getFragmentAtPosition(viewPager.getCurrentItem() + 1);
+                fm.replaceFragment(cls, b);
             }
         };
+
+        addFragment(viewPager.getAdapter().getCount());
+        addFragment(viewPager.getAdapter().getCount());
+        addFragment(viewPager.getAdapter().getCount());
+        addFragment(viewPager.getAdapter().getCount());
+        horizontalPagerHelper.goToPage(1);
     }
 
     private void addFragment(int index) {
@@ -106,17 +96,17 @@ public class HorizontalPagerActivity extends BaseActivity {
                 break;
             case R.id.btn_next_1:
                 addFragment(viewPager.getAdapter().getCount());
-                horizontalPagerHelper.addPage(LoginFragment.class, null);
+                horizontalPagerHelper.addFirstFlipPage(LoginFragment.class, null);
                 horizontalPagerHelper.goToNextPage();
                 break;
             case R.id.btn_next_2:
                 addFragment(viewPager.getAdapter().getCount());
-                horizontalPagerHelper.addPage(WelcomeFragment.class, null);
+                horizontalPagerHelper.addFirstFlipPage(WelcomeFragment.class, null);
                 horizontalPagerHelper.goToNextPage();
                 break;
             case R.id.btn_next_3:
                 addFragment(viewPager.getAdapter().getCount());
-                horizontalPagerHelper.addPage(DefaultFlipFragment.class, null);
+                horizontalPagerHelper.addFirstFlipPage(DefaultFlipFragment.class, null);
                 horizontalPagerHelper.goToNextPage();
                 break;
         }

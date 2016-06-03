@@ -82,10 +82,10 @@ public abstract class DynamicFragmentAdapter extends FragmentStatePagerAdapter {
     }
 
     public void updatePositionIndex(int pos, int currentItem) {
-        /*List<DynamicFragmentModel> list = fragmentItems.subList(0, pos + 1);
+        List<DynamicFragmentModel> list = fragmentItems.subList(0, pos + 1);
         list.add(fragmentItems.get(currentItem));
         fragmentItems = list;
-        notifyDataSetChanged();*/
+        notifyDataSetChanged();
     }
 
     public Fragment getCurrentFragment() {
