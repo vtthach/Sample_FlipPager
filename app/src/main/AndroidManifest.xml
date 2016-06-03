@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         
-        <activity android:name="dmt.hephaestus.sample.app.RootActivity">
+        <activity android:name="dmt.hephaestus.sample.ui.activity.RootActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,9 +17,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="dmt.hephaestus.sample.ui.activity.ViewPagerActivity" />
-        <activity android:name="dmt.hephaestus.sample.ui.activity.FlipPagerActivity" />
-        <activity android:name="dmt.hephaestus.sample.ui.activity.HorizontalPagerActivity" />
+        <activity android:name="dmt.hephaestus.sample.ui.activity.pager.ViewPagerActivity" />
+        <activity android:name="dmt.hephaestus.sample.ui.activity.pager.FlipPagerActivity" />
+        <activity android:name="dmt.hephaestus.sample.ui.activity.pager.HorizontalPagerActivity" />
     </application>
 
 </manifest>
