@@ -1,4 +1,4 @@
-package dmt.hephaestus.sample.app;
+package dmt.hephaestus.sample.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,9 +8,10 @@ import android.widget.Button;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import dmt.hephaestus.sample.ui.activity.FlipPagerActivity;
-import dmt.hephaestus.sample.ui.activity.HorizontalPagerActivity;
-import dmt.hephaestus.sample.ui.activity.ViewPagerActivity;
+import dmt.hephaestus.sample.ui.activity.base.BaseActivity;
+import dmt.hephaestus.sample.ui.activity.pager.FlipPagerActivity;
+import dmt.hephaestus.sample.ui.activity.pager.HorizontalPagerActivity;
+import dmt.hephaestus.sample.ui.activity.pager.ViewPagerActivity;
 import sample.dynamic_pager_adapter.R;
 import sample.util.ActivityUtils;
 import sample.util.AnimationType;

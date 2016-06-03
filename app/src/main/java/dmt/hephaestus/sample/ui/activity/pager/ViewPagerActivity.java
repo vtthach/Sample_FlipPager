@@ -1,4 +1,4 @@
-package dmt.hephaestus.sample.ui.activity;
+package dmt.hephaestus.sample.ui.activity.pager;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-import dmt.hephaestus.sample.app.BaseActivity;
+import dmt.hephaestus.sample.ui.activity.base.BaseActivity;
 import dmt.hephaestus.sample.ui.adapter.view.ViewItemPagerAdapter;
 import sample.dynamic_pager_adapter.R;
 import dmt.hephaestus.sample.ui.adapter.view.ViewPagerHelper;

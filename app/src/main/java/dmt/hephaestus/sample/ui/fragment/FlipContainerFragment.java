@@ -12,8 +12,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-import dmt.hephaestus.sample.ui.adapter.fragment.helper.FragmentPagerHelper;
-import dmt.hephaestus.sample.ui.adapter.fragment.helper.FragmentPagerHelperImpl;
+import dmt.hephaestus.adapter.helper.FlipFragmentPagerHelperImpl;
+import dmt.hephaestus.adapter.helper.FragmentPagerHelper;
 import dmt.hephaestus.sample.util.transformer.FlipVerticalTransformer;
 import sample.dynamic_pager_adapter.R;
 
@@ -50,7 +50,7 @@ public class FlipContainerFragment extends Fragment {
     protected void init() {
         viewPager.setPageTransformer(false, new FlipVerticalTransformer());
 
-        flipPagerHelper = new FragmentPagerHelperImpl(viewPager, getChildFragmentManager());
+        flipPagerHelper = new FlipFragmentPagerHelperImpl(viewPager, getChildFragmentManager());
 
         addDefaultFlipFragment();
     }

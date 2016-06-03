@@ -1,8 +1,9 @@
-package dmt.hephaestus.sample.ui.activity;
+package dmt.hephaestus.sample.ui.activity.pager;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
@@ -11,16 +12,16 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-import dmt.hephaestus.sample.app.BaseActivity;
+import dmt.hephaestus.adapter.helper.FragmentPagerHelper;
+import dmt.hephaestus.adapter.helper.HorizontalFragmentPagerHelperImpl;
 import dmt.hephaestus.sample.app.Constants;
-import dmt.hephaestus.sample.ui.adapter.fragment.helper.FragmentPagerHelper;
+import dmt.hephaestus.sample.ui.activity.base.BaseActivity;
 import dmt.hephaestus.sample.ui.fragment.ContainerFragment;
 import dmt.hephaestus.sample.ui.fragment.DefaultFlipFragment;
 import dmt.hephaestus.sample.ui.fragment.LoginFragment;
-import sample.dynamic_pager_adapter.R;
-import dmt.hephaestus.sample.ui.adapter.fragment.helper.HorizontalFragmentPagerHelperImpl;
 import dmt.hephaestus.sample.ui.fragment.WelcomeFragment;
 import dmt.hephaestus.sample.util.transformer.ZoomOutSlideTransformer;
+import sample.dynamic_pager_adapter.R;
 
 public class HorizontalPagerActivity extends BaseActivity {
 
@@ -51,6 +52,13 @@ public class HorizontalPagerActivity extends BaseActivity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+
+        horizontalPagerHelper.goToPage(1);
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         unbinder.unbind();
@@ -72,14 +80,16 @@ public class HorizontalPagerActivity extends BaseActivity {
 
         //horizontalPagerHelper = new SimpleFragmentPagerHelperImpl(viewPager, getSupportFragmentManager());
         //horizontalPagerHelper = new FragmentPagerHelperImpl(viewPager, getSupportFragmentManager());
-        horizontalPagerHelper = new HorizontalFragmentPagerHelperImpl(viewPager, getSupportFragmentManager());
+        horizontalPagerHelper = new HorizontalFragmentPagerHelperImpl(viewPager, getSupportFragmentManager()) {
+            @Override
+            public void onAddFirstFlipPage(Fragment f, Class<?> cls, Bundle b) {
+                addFragment(viewPager.getAdapter().getCount());
+                addFragment(viewPager.getAdapter().getCount());
+                addFragment(viewPager.getAdapter().getCount());
+                addFragment(viewPager.getAdapter().getCount());
 
-
-        addFragment(viewPager.getAdapter().getCount());
-        addFragment(viewPager.getAdapter().getCount());
-        addFragment(viewPager.getAdapter().getCount());
-        addFragment(viewPager.getAdapter().getCount());
-        horizontalPagerHelper.goToPage(1);
+            }
+        };
     }
 
     private void addFragment(int index) {
@@ -96,17 +106,17 @@ public class HorizontalPagerActivity extends BaseActivity {
                 break;
             case R.id.btn_next_1:
                 addFragment(viewPager.getAdapter().getCount());
-                horizontalPagerHelper.addFirstFlipPage(LoginFragment.class, null);
+                horizontalPagerHelper.addPage(LoginFragment.class, null);
                 horizontalPagerHelper.goToNextPage();
                 break;
             case R.id.btn_next_2:
                 addFragment(viewPager.getAdapter().getCount());
-                horizontalPagerHelper.addFirstFlipPage(WelcomeFragment.class, null);
+                horizontalPagerHelper.addPage(WelcomeFragment.class, null);
                 horizontalPagerHelper.goToNextPage();
                 break;
             case R.id.btn_next_3:
                 addFragment(viewPager.getAdapter().getCount());
-                horizontalPagerHelper.addFirstFlipPage(DefaultFlipFragment.class, null);
+                horizontalPagerHelper.addPage(DefaultFlipFragment.class, null);
                 horizontalPagerHelper.goToNextPage();
                 break;
         }

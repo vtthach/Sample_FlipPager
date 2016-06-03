@@ -1,4 +1,4 @@
-package dmt.hephaestus.sample.ui.activity;
+package dmt.hephaestus.sample.ui.activity.pager;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,11 +11,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-import dmt.hephaestus.sample.app.BaseActivity;
-import sample.dynamic_pager_adapter.R;
+import dmt.hephaestus.adapter.helper.FlipFragmentPagerHelperImpl;
+import dmt.hephaestus.adapter.helper.FragmentPagerHelper;
 import dmt.hephaestus.sample.app.Constants;
+import dmt.hephaestus.sample.ui.activity.base.BaseActivity;
 import dmt.hephaestus.sample.ui.fragment.BaseSampleFragment;
 import dmt.hephaestus.sample.util.transformer.FlipVerticalTransformer;
+import sample.dynamic_pager_adapter.R;
 
 public class FlipPagerActivity extends BaseActivity {
 
@@ -34,7 +36,7 @@ public class FlipPagerActivity extends BaseActivity {
     Button btnHome;
 
     private Unbinder unbinder;
-    FragmentPagerHelper1 fragmentPagerHelper;
+    FragmentPagerHelper fragmentPagerHelper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,7 +56,7 @@ public class FlipPagerActivity extends BaseActivity {
     private void init() {
         viewPager.setPageTransformer(false, new FlipVerticalTransformer());
 
-        fragmentPagerHelper = new FragmentPagerHelperImpl1(viewPager, getSupportFragmentManager());
+        fragmentPagerHelper = new FlipFragmentPagerHelperImpl(viewPager, getSupportFragmentManager());
 
         Bundle b = new Bundle();
         b.putInt(Constants.KEY_INDEX, 0);

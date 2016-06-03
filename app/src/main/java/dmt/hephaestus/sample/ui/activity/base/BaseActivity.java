@@ -1,4 +1,4 @@
-package dmt.hephaestus.sample.app;
+package dmt.hephaestus.sample.ui.activity.base;
 
 import android.support.v7.app.AppCompatActivity;
 
