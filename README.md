@@ -3,6 +3,12 @@
 
 ###Release Notes:
 
+####Version 1.0.1
+
+* fix flip pager bug: wrong fragment index
+* rename package from dmt.dynamicpageradapter to dmt.hephaestus
+* add Sample project
+
 ####Version 1.0.0
 
 

@@ -1,1 +1,2 @@
 include ':dynamicpageradapter'
+include ':app'

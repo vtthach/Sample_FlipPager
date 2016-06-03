@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="dmt.hephaestus.sample.ui.activity.ViewPagerActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/btn_view_adapter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/LBL_VIEW_ADAPTER" />
+
+        <Button
+            android:id="@+id/brn_flip_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/LBL_FLIP_FRAGMENT_ADAPTER" />
+
+        <Button
+            android:id="@+id/btn_horizontal_swipe_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/LBL_HORIZONTAL_SWIPE_FRAGMENT_ADAPTER" />
+    </LinearLayout>
+
+</FrameLayout>

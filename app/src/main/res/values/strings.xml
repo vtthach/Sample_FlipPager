@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">hephaestus</string>
+    <string name="app_name">dynamic_pager_adapter</string>
+    <string name="LBL_BACK"><![CDATA[<]]></string>
+    <string name="LBL_NEXT"><![CDATA[>]]></string>
+    <string name="LBL_UP"><![CDATA[UP]]></string>
+    <string name="LBL_DOWN"><![CDATA[DOWN]]></string>
+    <string name="LBL_HOME">Home</string>
+    <string name="LBL_HORIZONTAL_SWIPE_FRAGMENT_ADAPTER">Horizontal Swipe Fragment Adapter</string>
+    <string name="LBL_VIEW_ADAPTER">View Adapter</string>
+    <string name="LBL_FLIP_FRAGMENT_ADAPTER">Flip Fragment Adapter</string>
 </resources>
