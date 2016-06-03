@@ -25,7 +25,8 @@
             android:id="@+id/btn_horizontal_swipe_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/LBL_HORIZONTAL_SWIPE_FRAGMENT_ADAPTER" />
+            android:text="@string/LBL_HORIZONTAL_SWIPE_FRAGMENT_ADAPTER"
+            android:visibility="gone" />
     </LinearLayout>
 
 </FrameLayout>

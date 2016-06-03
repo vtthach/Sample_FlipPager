@@ -1,11 +1,9 @@
 package dmt.hephaestus.adapter.helper;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 
-import dmt.hephaestus.adapter.DynamicFragmentAdapter;
 import dmt.hephaestus.adapter.FlipFragmentAdapter;
 
 
@@ -17,7 +15,7 @@ import dmt.hephaestus.adapter.FlipFragmentAdapter;
  */
 public class FlipFragmentPagerHelperImpl implements FlipFragmentPagerHelper {
     ViewPager mViewPager;
-    DynamicFragmentAdapter mAdapter;
+    FlipFragmentAdapter mAdapter;
 
     public FlipFragmentPagerHelperImpl(ViewPager viewPager, FragmentManager fragmentManager) {
         mViewPager = viewPager;
@@ -39,7 +37,7 @@ public class FlipFragmentPagerHelperImpl implements FlipFragmentPagerHelper {
 
     @Override
     public void goToNextPage() {
-        if (mViewPager.getCurrentItem() < mViewPager.getAdapter().getCount())
+        if (mViewPager.getCurrentItem() < mViewPager.getAdapter().getCount() - 1)
             mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
     }
 
@@ -54,29 +52,5 @@ public class FlipFragmentPagerHelperImpl implements FlipFragmentPagerHelper {
     public void goToPage(int pos) {
         mAdapter.updatePositionIndex(pos, mViewPager.getCurrentItem());
         mViewPager.setCurrentItem(pos, true);
-    }
-
-    @Override
-    public int getCount() {
-        return mAdapter.getCount();
-    }
-
-    @Override
-    public Fragment getCurrentFragment() {
-        if (mViewPager.getContext() != null) {
-            return mAdapter.getCurrentFragment();
-        } else {
-            return mAdapter.getItem(mViewPager.getCurrentItem());
-        }
-    }
-
-    @Override
-    public Fragment getFragmentAtPosition(int position) {
-        return mAdapter.getFragmentAtPosition(position);
-    }
-
-    @Override
-    public int getPositionAtClass(Class className) {
-        return mAdapter.getPositionAtClass(className);
     }
 }

@@ -11,8 +11,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import dmt.hephaestus.adapter.helper.FlipFragmentPagerHelper;
 import dmt.hephaestus.adapter.helper.FlipFragmentPagerHelperImpl;
-import dmt.hephaestus.adapter.helper.FragmentPagerHelper;
 import dmt.hephaestus.sample.app.Constants;
 import dmt.hephaestus.sample.ui.activity.base.BaseActivity;
 import dmt.hephaestus.sample.ui.fragment.BaseSampleFragment;
@@ -36,7 +36,7 @@ public class FlipPagerActivity extends BaseActivity {
     Button btnHome;
 
     private Unbinder unbinder;
-    FragmentPagerHelper fragmentPagerHelper;
+    FlipFragmentPagerHelper fragmentPagerHelper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
