@@ -22,6 +22,7 @@ public class FlipFragmentAdapter extends FragmentPagerAdapter {
 
     private boolean mIsSynchronizeData = false;
     private Context mContext;
+    private int mCurrentPosition;
 
     public FlipFragmentAdapter(Context context, FragmentManager fm) {
         super(fm);
@@ -55,6 +56,7 @@ public class FlipFragmentAdapter extends FragmentPagerAdapter {
 
     @Override
     public void setPrimaryItem(ViewGroup container, int position, Object object) {
+        mCurrentPosition = position;
         super.setPrimaryItem(container, position, object);
 
         // remove all items from current item to last item
@@ -92,5 +94,29 @@ public class FlipFragmentAdapter extends FragmentPagerAdapter {
         list.add(fragmentItems.get(currentItem));
         fragmentItems = list;
         notifyDataSetChanged();
+    }
+
+    public Fragment getCurrentFragment() {
+        Fragment f = fragmentItems.get(mCurrentPosition).getFragment();
+        if (f != null)
+            return f;
+        return null;
+    }
+
+    public Fragment getFragmentAtPosition(int position) {
+        Fragment f = fragmentItems.get(position).getFragment();
+        if (f != null)
+            return f;
+        return null;
+    }
+
+    public int getPositionAtClass(Class className) {
+        for (int pos = 0, size = fragmentItems.size(); pos < size; pos++) {
+            Class class1 = fragmentItems.get(pos).getClass();
+            if (class1 == className) {
+                return pos;
+            }
+        }
+        return 0;
     }
 }

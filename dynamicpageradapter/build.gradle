@@ -1,6 +1,6 @@
 def libraryGroupId = 'dmt'
 def libraryArtifactId = 'hephaestus'//replace with your library's name
-def libraryVersion = '1.0.1'
+def libraryVersion = '1.0.2'
 
 buildscript {
     repositories {

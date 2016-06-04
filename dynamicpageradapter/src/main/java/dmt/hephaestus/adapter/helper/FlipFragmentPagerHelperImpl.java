@@ -1,6 +1,7 @@
 package dmt.hephaestus.adapter.helper;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 
@@ -13,7 +14,7 @@ import dmt.hephaestus.adapter.FlipFragmentAdapter;
  * Since:    5/19/2016
  * Time:     1:46 PM
  */
-public class FlipFragmentPagerHelperImpl implements FlipFragmentPagerHelper {
+public class FlipFragmentPagerHelperImpl implements FragmentPagerHelper {
     ViewPager mViewPager;
     FlipFragmentAdapter mAdapter;
 
@@ -52,5 +53,25 @@ public class FlipFragmentPagerHelperImpl implements FlipFragmentPagerHelper {
     public void goToPage(int pos) {
         mAdapter.updatePositionIndex(pos, mViewPager.getCurrentItem());
         mViewPager.setCurrentItem(pos, true);
+    }
+
+    @Override
+    public int getCount() {
+        return mAdapter.getCount();
+    }
+
+    @Override
+    public Fragment getCurrentFragment() {
+        return mAdapter.getCurrentFragment();
+    }
+
+    @Override
+    public Fragment getFragmentAtPosition(int position) {
+        return mAdapter.getFragmentAtPosition(position);
+    }
+
+    @Override
+    public int getPositionAtClass(Class className) {
+        return mAdapter.getPositionAtClass(className);
     }
 }
