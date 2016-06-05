@@ -16,6 +16,9 @@ import dmt.hephaestus.adapter.helper.FragmentPagerHelper;
 import dmt.hephaestus.sample.app.Constants;
 import dmt.hephaestus.sample.ui.activity.base.BaseActivity;
 import dmt.hephaestus.sample.ui.fragment.BaseSampleFragment;
+import dmt.hephaestus.sample.ui.fragment.DefaultFlipFragment;
+import dmt.hephaestus.sample.ui.fragment.LoginFragment;
+import dmt.hephaestus.sample.ui.fragment.WelcomeFragment;
 import dmt.hephaestus.transformer.FlipVerticalTransformer;
 import sample.dynamic_pager_adapter.R;
 
@@ -63,7 +66,7 @@ public class FlipPagerActivity extends BaseActivity {
         fragmentPagerHelper.addPage(BaseSampleFragment.class, b);
     }
 
-    @OnClick({R.id.btn_back, R.id.btn_next})
+    @OnClick({R.id.btn_back, R.id.btn_next, R.id.btn_next_1, R.id.btn_next_2, R.id.btn_next_3})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_back:
@@ -75,6 +78,18 @@ public class FlipPagerActivity extends BaseActivity {
 
                 Class<?> cls = BaseSampleFragment.class;
                 fragmentPagerHelper.addPage(cls, b);
+                fragmentPagerHelper.goToNextPage();
+                break;
+            case R.id.btn_next_1:
+                fragmentPagerHelper.addPage(LoginFragment.class, null);
+                fragmentPagerHelper.goToNextPage();
+                break;
+            case R.id.btn_next_2:
+                fragmentPagerHelper.addPage(WelcomeFragment.class, null);
+                fragmentPagerHelper.goToNextPage();
+                break;
+            case R.id.btn_next_3:
+                fragmentPagerHelper.addPage(DefaultFlipFragment.class, null);
                 fragmentPagerHelper.goToNextPage();
                 break;
         }

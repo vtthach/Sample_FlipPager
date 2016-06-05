@@ -23,7 +23,40 @@
         android:layout_gravity="right|center_vertical|center_horizontal"
         android:text="@string/LBL_NEXT" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_vertical|center_horizontal"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/btn_next_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@android:color/holo_blue_light"
+            android:text="Login" />
+
+        <Button
+            android:id="@+id/btn_next_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/holo_green_dark"
+            android:text="Welcome" />
+
+        <Button
+            android:id="@+id/btn_next_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/holo_red_light"
+            android:text="Default" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_home"

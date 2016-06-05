@@ -104,9 +104,6 @@ public class HorizontalPagerActivity extends BaseActivity {
                 goToPreviousPage();
                 break;
             case R.id.btn_next_1:
-
-                Fragment f = horizontalPagerHelper.getCurrentFragment();
-
                 goToNextPage(LoginFragment.class, null);
                 break;
             case R.id.btn_next_2:
