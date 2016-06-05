@@ -3,15 +3,14 @@ package dmt.hephaestus.sample.ui.activity.pager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import dmt.hephaestus.adapter.helper.FlipFragmentPagerHelperImpl;
 import dmt.hephaestus.adapter.helper.FragmentPagerHelper;
+import dmt.hephaestus.adapter.helper.MultipleFlipFragmentPagerHelperImpl;
 import dmt.hephaestus.sample.app.Constants;
 import dmt.hephaestus.sample.ui.activity.base.BaseActivity;
 import dmt.hephaestus.sample.ui.fragment.ContainerFragment;
@@ -51,6 +50,7 @@ public class MultipleFlipPagerActivity extends BaseActivity {
         init();
     }
 
+    int index = 0;
     @OnClick({R.id.btn_back,
             R.id.btn_next,
             R.id.btn_next_1,
@@ -62,10 +62,23 @@ public class MultipleFlipPagerActivity extends BaseActivity {
                 goToPreviousPage();
                 break;
             case R.id.btn_next:
-                addDefaultFragment(viewPager.getAdapter().getCount());
+                Bundle b = new Bundle();
+                b.putInt(Constants.KEY_INDEX, viewPager.getCurrentItem() + 1);
+
+                if (index == 0) {
+                    fragmentPagerHelper.addPage(LoginFragment.class, b);
+                    index++;
+                } else if (index == 1) {
+                    fragmentPagerHelper.addPage(RegisterFragment.class, b);
+                    index++;
+                } else if (index == 2) {
+                    fragmentPagerHelper.addPage(WelcomeFragment.class, b);
+                    index = 0;
+                }
+                //addDefaultFragment(viewPager.getAdapter().getCount());
                 fragmentPagerHelper.goToNextPage();
                 break;
-            case R.id.btn_next_1:
+            /*case R.id.btn_next_1:
                 goToNextPage(LoginFragment.class, null);
                 break;
             case R.id.btn_next_2:
@@ -73,7 +86,7 @@ public class MultipleFlipPagerActivity extends BaseActivity {
                 break;
             case R.id.btn_next_3:
                 goToNextPage(RegisterFragment.class, null);
-                break;
+                break;*/
         }
     }
 
@@ -88,13 +101,7 @@ public class MultipleFlipPagerActivity extends BaseActivity {
     private void init() {
         viewPager.setPageTransformer(false, new FlipVerticalTransformer());
 
-        fragmentPagerHelper = new FlipFragmentPagerHelperImpl(viewPager, getSupportFragmentManager()) {
-            @Override
-            public void onAddNextPage(Fragment f, Class<?> cls, Bundle b) {
-                ContainerFragment fm = (ContainerFragment) getFragmentAtPosition(viewPager.getCurrentItem() + 1);
-                fm.replaceFragment(cls, b);
-            }
-        };
+        fragmentPagerHelper = new MultipleFlipFragmentPagerHelperImpl(viewPager, getSupportFragmentManager());
 
         addDefaultFragment(viewPager.getAdapter().getCount());
     }
@@ -110,10 +117,10 @@ public class MultipleFlipPagerActivity extends BaseActivity {
     }
 
     private void goToNextPage(Class<?> cls, Bundle b) {
-        if (viewPager.getAdapter().getCount() == viewPager.getCurrentItem() + 1) {
+        /*if (viewPager.getAdapter().getCount() == viewPager.getCurrentItem() + 1) {
             addDefaultFragment(viewPager.getAdapter().getCount());
         }
         fragmentPagerHelper.addNextPage(cls, b);
-        fragmentPagerHelper.goToNextPage();
+        fragmentPagerHelper.goToNextPage();*/
     }
 }

@@ -8,7 +8,8 @@ import android.os.Bundle;
  * Since:    5/19/2016
  * Time:     2:07 PM
  */
-public interface HorizontalFragmentPagerHelper extends FragmentPagerHelper{
+public interface SingleFlipFragmentPagerHelper extends FragmentPagerHelper {
 
     void addNextPage(Class<?> cls, Bundle b);
+
 }

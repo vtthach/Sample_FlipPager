@@ -14,7 +14,7 @@ import dmt.hephaestus.adapter.SingleFlipFragmentAdapter;
  * Since:    5/19/2016
  * Time:     1:46 PM
  */
-public abstract class FlipFragmentPagerHelperImpl implements FragmentPagerHelper {
+public abstract class SingleFlipFragmentPagerHelperImpl implements SingleFlipFragmentPagerHelper {
 
     private ViewPager mViewPager;
 
@@ -22,7 +22,7 @@ public abstract class FlipFragmentPagerHelperImpl implements FragmentPagerHelper
 
     public abstract void onAddNextPage(Fragment f, Class<?> cls, Bundle b);
 
-    public FlipFragmentPagerHelperImpl(ViewPager viewPager, FragmentManager fragmentManager) {
+    public SingleFlipFragmentPagerHelperImpl(ViewPager viewPager, FragmentManager fragmentManager) {
         mViewPager = viewPager;
         mAdapter = new SingleFlipFragmentAdapter(viewPager.getContext(), fragmentManager);
 

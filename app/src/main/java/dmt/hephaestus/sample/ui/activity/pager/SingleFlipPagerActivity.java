@@ -10,8 +10,8 @@ import android.widget.Button;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import dmt.hephaestus.adapter.helper.FlipFragmentPagerHelperImpl;
-import dmt.hephaestus.adapter.helper.FragmentPagerHelper;
+import dmt.hephaestus.adapter.helper.SingleFlipFragmentPagerHelper;
+import dmt.hephaestus.adapter.helper.SingleFlipFragmentPagerHelperImpl;
 import dmt.hephaestus.sample.app.Constants;
 import dmt.hephaestus.sample.ui.activity.base.BaseActivity;
 import dmt.hephaestus.sample.ui.fragment.ContainerFragment;
@@ -32,7 +32,7 @@ public class SingleFlipPagerActivity extends BaseActivity {
     @BindView(R.id.btn_home)
     Button btnHome;
 
-    FragmentPagerHelper fragmentPagerHelper;
+    SingleFlipFragmentPagerHelper fragmentPagerHelper;
 
     public static Intent intentInstance(Context context) {
         Intent intent = new Intent(context, SingleFlipPagerActivity.class);
@@ -88,7 +88,7 @@ public class SingleFlipPagerActivity extends BaseActivity {
     private void init() {
         viewPager.setPageTransformer(false, new FlipVerticalTransformer());
 
-        fragmentPagerHelper = new FlipFragmentPagerHelperImpl(viewPager, getSupportFragmentManager()) {
+        fragmentPagerHelper = new SingleFlipFragmentPagerHelperImpl(viewPager, getSupportFragmentManager()) {
             @Override
             public void onAddNextPage(Fragment f, Class<?> cls, Bundle b) {
                 ContainerFragment fm = (ContainerFragment) getFragmentAtPosition(viewPager.getCurrentItem() + 1);
