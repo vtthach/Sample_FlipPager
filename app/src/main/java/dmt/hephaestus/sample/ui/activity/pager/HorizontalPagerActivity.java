@@ -69,7 +69,7 @@ public class HorizontalPagerActivity extends BaseActivity {
 
         horizontalPagerHelper = new HorizontalFragmentPagerHelperImpl(viewPager, getSupportFragmentManager()) {
             @Override
-            public void onAddFirstFlipPage(Fragment f, Class<?> cls, Bundle b) {
+            public void onAddNextPage(Fragment f, Class<?> cls, Bundle b) {
                 ContainerFragment fm = (ContainerFragment) getFragmentAtPosition(viewPager.getCurrentItem() + 1);
                 fm.replaceFragment(cls, b);
             }
@@ -93,7 +93,7 @@ public class HorizontalPagerActivity extends BaseActivity {
 
     private void goToNextPage(Class<?> cls, Bundle b) {
         addDefaultFragment(viewPager.getAdapter().getCount());
-        horizontalPagerHelper.addFirstFlipPage(cls, b);
+        horizontalPagerHelper.addNextPage(cls, b);
         horizontalPagerHelper.goToNextPage();
     }
 

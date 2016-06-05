@@ -18,7 +18,7 @@ public abstract class HorizontalFragmentPagerHelperImpl implements HorizontalFra
     private ViewPager mViewPager;
     private HorizontalFragmentAdapter mAdapter;
 
-    public abstract void onAddFirstFlipPage(Fragment f, Class<?> cls, Bundle b);
+    public abstract void onAddNextPage(Fragment f, Class<?> cls, Bundle b);
 
     public HorizontalFragmentPagerHelperImpl(ViewPager viewPager, FragmentManager fragmentManager) {
         mViewPager = viewPager;
@@ -34,8 +34,8 @@ public abstract class HorizontalFragmentPagerHelperImpl implements HorizontalFra
     }
 
     @Override
-    public void addFirstFlipPage(Class<?> cls, Bundle b) {
-        onAddFirstFlipPage(getFragmentAtPosition(mViewPager.getCurrentItem() + 1), cls, b);
+    public void addNextPage(Class<?> cls, Bundle b) {
+        onAddNextPage(getFragmentAtPosition(mViewPager.getCurrentItem() + 1), cls, b);
     }
 
     @Override

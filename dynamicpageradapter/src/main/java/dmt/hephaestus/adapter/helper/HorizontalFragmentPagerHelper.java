@@ -9,5 +9,5 @@ import android.os.Bundle;
  * Time:     2:07 PM
  */
 public interface HorizontalFragmentPagerHelper extends FragmentPagerHelper{
-    void addFirstFlipPage(Class<?> cls, Bundle b);
+    void addNextPage(Class<?> cls, Bundle b);
 }
