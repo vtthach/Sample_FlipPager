@@ -75,39 +75,42 @@ public class HorizontalPagerActivity extends BaseActivity {
             }
         };
 
-        addFragment(viewPager.getAdapter().getCount());
-        addFragment(viewPager.getAdapter().getCount());
-        addFragment(viewPager.getAdapter().getCount());
-        addFragment(viewPager.getAdapter().getCount());
+        addDefaultFragment(viewPager.getAdapter().getCount());
+        addDefaultFragment(viewPager.getAdapter().getCount());
+        addDefaultFragment(viewPager.getAdapter().getCount());
         horizontalPagerHelper.goToPage(1);
     }
 
-    private void addFragment(int index) {
+    private void addDefaultFragment(int index) {
         Bundle b = new Bundle();
         b.putInt(Constants.KEY_INDEX, index);
         horizontalPagerHelper.addPage(ContainerFragment.class, b);
+    }
+
+    private void goToPreviousPage() {
+        horizontalPagerHelper.goToPreviousPage();
+    }
+
+    private void goToNextPage(Class<?> cls, Bundle b) {
+        addDefaultFragment(viewPager.getAdapter().getCount());
+        horizontalPagerHelper.addFirstFlipPage(cls, b);
+        horizontalPagerHelper.goToNextPage();
     }
 
     @OnClick({R.id.btn_back, R.id.btn_next_1, R.id.btn_next_2, R.id.btn_next_3})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_back:
-                horizontalPagerHelper.goToPreviousPage();
+                goToPreviousPage();
                 break;
             case R.id.btn_next_1:
-                addFragment(viewPager.getAdapter().getCount());
-                horizontalPagerHelper.addFirstFlipPage(LoginFragment.class, null);
-                horizontalPagerHelper.goToNextPage();
+                goToNextPage(LoginFragment.class, null);
                 break;
             case R.id.btn_next_2:
-                addFragment(viewPager.getAdapter().getCount());
-                horizontalPagerHelper.addFirstFlipPage(WelcomeFragment.class, null);
-                horizontalPagerHelper.goToNextPage();
+                goToNextPage(WelcomeFragment.class, null);
                 break;
             case R.id.btn_next_3:
-                addFragment(viewPager.getAdapter().getCount());
-                horizontalPagerHelper.addFirstFlipPage(DefaultFlipFragment.class, null);
-                horizontalPagerHelper.goToNextPage();
+                goToNextPage(DefaultFlipFragment.class, null);
                 break;
         }
     }

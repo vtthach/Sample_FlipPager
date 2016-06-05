@@ -16,7 +16,6 @@ public class ZoomOutSlideTransformer implements ViewPager.PageTransformer {
         if (position < -1.5) { // [-Infinity, -1.5)
             // This page is way off-screen to the left.
             view.setAlpha(0);
-
         } else if (position <= 1.5) { // [-1.5, 1.5]
             // Modify the default slide transition to shrink the page as well
             float scaleFactor = Math.max(MIN_SCALE, 1 - Math.abs(position));
@@ -25,9 +24,10 @@ public class ZoomOutSlideTransformer implements ViewPager.PageTransformer {
             view.setScaleY(scaleFactor);
 
             // Fade the page relative to its size.
-            /*view.setAlpha(MIN_ALPHA +
+            float f = MIN_ALPHA +
                     (scaleFactor - MIN_SCALE) /
-                            (1 - MIN_SCALE) * (1 - MIN_ALPHA));*/
+                            (1 - MIN_SCALE) * (1 - MIN_ALPHA);
+            view.setAlpha(f);
         } else { // (1.5, +Infinity]
             // This page is way off-screen to the right.
             view.setAlpha(0);

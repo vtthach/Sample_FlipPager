@@ -57,7 +57,8 @@
             android:layout_height="100dp"
             android:layout_gravity="right"
             android:background="@android:color/darker_gray"
-            android:text="AAV" />
+            android:text="AAV"
+            android:visibility="gone"/>
 
     </LinearLayout>
 

@@ -33,6 +33,9 @@ public class ContainerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_container, container, false);
         unbinder = ButterKnife.bind(this, view);
+
+        //view.setAlpha(0.0f);
+
         return view;
     }
 
@@ -50,6 +53,7 @@ public class ContainerFragment extends Fragment {
     }
 
     protected void init() {
+        //layoutCard.setAlpha(0.6f);
     }
 
     public void replaceFragment(Class<?> cls, Bundle b) {

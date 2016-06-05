@@ -35,8 +35,6 @@ public abstract class HorizontalFragmentPagerHelperImpl implements HorizontalFra
 
     @Override
     public void addFirstFlipPage(Class<?> cls, Bundle b) {
-        //ContainerFragment f = (ContainerFragment) getFragmentAtPosition(mViewPager.getCurrentItem() + 1);
-        //f.replaceFragment(cls, b);
         onAddFirstFlipPage(getFragmentAtPosition(mViewPager.getCurrentItem() + 1), cls, b);
     }
 
