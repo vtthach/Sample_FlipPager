@@ -61,7 +61,6 @@ public class FlipFragmentAdapter extends FragmentPagerAdapter {
         // remove all items from current item to last item
         removePageFrom(position);
     }
-
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         super.destroyItem(container, position, object);
@@ -79,7 +78,7 @@ public class FlipFragmentAdapter extends FragmentPagerAdapter {
                 && position >= 0
                 && position + 1 < fragmentItems.size()) {
             for (int i = fragmentItems.size() - 1; i > position; i--) {
-                // fragmentItems.remove(i);
+                 //fragmentItems.remove(i);
             }
 
             notifyDataSetChanged();

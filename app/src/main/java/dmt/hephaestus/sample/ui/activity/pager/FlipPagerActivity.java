@@ -15,8 +15,8 @@ import dmt.hephaestus.adapter.helper.FragmentPagerHelper;
 import dmt.hephaestus.sample.app.Constants;
 import dmt.hephaestus.sample.ui.activity.base.BaseActivity;
 import dmt.hephaestus.sample.ui.fragment.ContainerFragment;
-import dmt.hephaestus.sample.ui.fragment.RegisterFragment;
 import dmt.hephaestus.sample.ui.fragment.LoginFragment;
+import dmt.hephaestus.sample.ui.fragment.RegisterFragment;
 import dmt.hephaestus.sample.ui.fragment.WelcomeFragment;
 import dmt.hephaestus.transformer.FlipVerticalTransformer;
 import sample.dynamic_pager_adapter.R;
@@ -110,7 +110,9 @@ public class FlipPagerActivity extends BaseActivity {
     }
 
     private void goToNextPage(Class<?> cls, Bundle b) {
-        addDefaultFragment(viewPager.getAdapter().getCount());
+        if (viewPager.getAdapter().getCount() == viewPager.getCurrentItem() + 1) {
+            addDefaultFragment(viewPager.getAdapter().getCount());
+        }
         fragmentPagerHelper.addNextPage(cls, b);
         fragmentPagerHelper.goToNextPage();
 
