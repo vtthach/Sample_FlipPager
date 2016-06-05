@@ -20,7 +20,7 @@ import dmt.hephaestus.sample.ui.fragment.ContainerFragment;
 import dmt.hephaestus.sample.ui.fragment.DefaultFlipFragment;
 import dmt.hephaestus.sample.ui.fragment.LoginFragment;
 import dmt.hephaestus.sample.ui.fragment.WelcomeFragment;
-import dmt.hephaestus.sample.util.transformer.ZoomOutSlideTransformer;
+import dmt.hephaestus.transformer.ZoomOutSlideTransformer;
 import sample.dynamic_pager_adapter.R;
 
 public class HorizontalPagerActivity extends BaseActivity {

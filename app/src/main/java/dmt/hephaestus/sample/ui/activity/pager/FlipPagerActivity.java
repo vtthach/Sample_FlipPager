@@ -16,7 +16,7 @@ import dmt.hephaestus.adapter.helper.FragmentPagerHelper;
 import dmt.hephaestus.sample.app.Constants;
 import dmt.hephaestus.sample.ui.activity.base.BaseActivity;
 import dmt.hephaestus.sample.ui.fragment.BaseSampleFragment;
-import dmt.hephaestus.sample.util.transformer.FlipVerticalTransformer;
+import dmt.hephaestus.transformer.FlipVerticalTransformer;
 import sample.dynamic_pager_adapter.R;
 
 public class FlipPagerActivity extends BaseActivity {

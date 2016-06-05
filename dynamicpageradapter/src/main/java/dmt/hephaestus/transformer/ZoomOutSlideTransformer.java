@@ -25,9 +25,9 @@ public class ZoomOutSlideTransformer implements ViewPager.PageTransformer {
             view.setScaleY(scaleFactor);
 
             // Fade the page relative to its size.
-            view.setAlpha(MIN_ALPHA +
+            /*view.setAlpha(MIN_ALPHA +
                     (scaleFactor - MIN_SCALE) /
-                            (1 - MIN_SCALE) * (1 - MIN_ALPHA));
+                            (1 - MIN_SCALE) * (1 - MIN_ALPHA));*/
         } else { // (1.5, +Infinity]
             // This page is way off-screen to the right.
             view.setAlpha(0);

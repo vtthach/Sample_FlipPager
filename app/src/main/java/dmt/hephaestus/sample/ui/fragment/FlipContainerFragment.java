@@ -14,7 +14,7 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import dmt.hephaestus.adapter.helper.FlipFragmentPagerHelperImpl;
 import dmt.hephaestus.adapter.helper.FragmentPagerHelper;
-import dmt.hephaestus.sample.util.transformer.FlipVerticalTransformer;
+import dmt.hephaestus.transformer.FlipVerticalTransformer;
 import sample.dynamic_pager_adapter.R;
 
 /**
