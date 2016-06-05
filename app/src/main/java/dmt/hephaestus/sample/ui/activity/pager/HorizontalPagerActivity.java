@@ -15,7 +15,7 @@ import dmt.hephaestus.adapter.helper.HorizontalFragmentPagerHelperImpl;
 import dmt.hephaestus.sample.app.Constants;
 import dmt.hephaestus.sample.ui.activity.base.BaseActivity;
 import dmt.hephaestus.sample.ui.fragment.ContainerFragment;
-import dmt.hephaestus.sample.ui.fragment.DefaultFlipFragment;
+import dmt.hephaestus.sample.ui.fragment.RegisterFragment;
 import dmt.hephaestus.sample.ui.fragment.LoginFragment;
 import dmt.hephaestus.sample.ui.fragment.WelcomeFragment;
 import dmt.hephaestus.transformer.ZoomOutSlideTransformer;
@@ -39,7 +39,7 @@ public class HorizontalPagerActivity extends BaseActivity {
 
     @Override
     public int getContentViewId() {
-        return R.layout.activity_horizontal_swipe_pager;
+        return R.layout.activity_horizontal_pager;
     }
 
     @Override
@@ -65,7 +65,7 @@ public class HorizontalPagerActivity extends BaseActivity {
                 goToNextPage(WelcomeFragment.class, null);
                 break;
             case R.id.btn_next_3:
-                goToNextPage(DefaultFlipFragment.class, null);
+                goToNextPage(RegisterFragment.class, null);
                 break;
         }
     }

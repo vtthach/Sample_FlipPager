@@ -48,18 +48,7 @@
             android:layout_gravity="right"
             android:layout_marginTop="10dp"
             android:background="@android:color/holo_red_light"
-            android:text="Default" />
-
-        <ImageView
-            android:layout_marginTop="10dp"
-            android:id="@+id/btn_next_4"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="right"
-            android:background="@android:color/darker_gray"
-            android:text="AAV"
-            android:visibility="gone"/>
-
+            android:text="Register" />
     </LinearLayout>
 
 

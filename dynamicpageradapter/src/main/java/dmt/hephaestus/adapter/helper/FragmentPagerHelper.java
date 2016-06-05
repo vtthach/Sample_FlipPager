@@ -11,6 +11,8 @@ import android.support.v4.app.Fragment;
  */
 public interface FragmentPagerHelper {
 
+    void addNextPage(Class<?> cls, Bundle b);
+
     void addPage(Class<?> cls, Bundle b);
 
     void removePage(int position);

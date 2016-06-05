@@ -2,13 +2,11 @@ package dmt.hephaestus.sample.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
+import dmt.hephaestus.sample.ui.activity.base.BaseFragment;
 import sample.dynamic_pager_adapter.R;
 
 /**
@@ -17,15 +15,13 @@ import sample.dynamic_pager_adapter.R;
  * Since:    5/24/2016
  * Time:     7:13 AM
  */
-public class DefaultFlipFragment extends Fragment {
-    private Unbinder unbinder;
+public class RegisterFragment extends BaseFragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_default_flip, container, false);
-        unbinder = ButterKnife.bind(this, view);
-        return view;
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_register, container, false);
     }
 
     @Override
@@ -36,12 +32,5 @@ public class DefaultFlipFragment extends Fragment {
     }
 
     protected void init() {
-    }
-
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        unbinder.unbind();
     }
 }

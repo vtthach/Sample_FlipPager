@@ -15,7 +15,9 @@ import dmt.hephaestus.adapter.HorizontalFragmentAdapter;
  * Time:     1:46 PM
  */
 public abstract class HorizontalFragmentPagerHelperImpl implements HorizontalFragmentPagerHelper {
+
     private ViewPager mViewPager;
+
     private HorizontalFragmentAdapter mAdapter;
 
     public abstract void onAddNextPage(Fragment f, Class<?> cls, Bundle b);
