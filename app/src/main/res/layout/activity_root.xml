@@ -17,11 +17,18 @@
             android:visibility="gone" />
 
         <Button
-            android:id="@+id/brn_flip_fragment"
+            android:id="@+id/btn_single_flip_fragment"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/LBL_FLIP_FRAGMENT_ADAPTER" />
+            android:text="@string/LBL_SINGLE_FLIP_FRAGMENT_ADAPTER" />
+
+        <Button
+            android:id="@+id/btn_multiple_flip_fragment"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/LBL_MULTIPLE_FLIP_FRAGMENT_ADAPTER" />
 
         <Button
             android:id="@+id/btn_horizontal_swipe_fragment"

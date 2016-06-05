@@ -18,7 +18,8 @@
         </activity>
 
         <activity android:name="dmt.hephaestus.sample.ui.activity.pager.ViewPagerActivity" />
-        <activity android:name="dmt.hephaestus.sample.ui.activity.pager.FlipPagerActivity" />
+        <activity android:name="dmt.hephaestus.sample.ui.activity.pager.SingleFlipPagerActivity" />
+        <activity android:name="dmt.hephaestus.sample.ui.activity.pager.MultipleFlipPagerActivity" />
         <activity android:name="dmt.hephaestus.sample.ui.activity.pager.HorizontalPagerActivity" />
     </application>
 

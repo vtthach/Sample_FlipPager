@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 
-import dmt.hephaestus.adapter.FlipFragmentAdapter;
+import dmt.hephaestus.adapter.SingleFlipFragmentAdapter;
 
 
 /**
@@ -18,13 +18,13 @@ public abstract class FlipFragmentPagerHelperImpl implements FragmentPagerHelper
 
     private ViewPager mViewPager;
 
-    private FlipFragmentAdapter mAdapter;
+    private SingleFlipFragmentAdapter mAdapter;
 
     public abstract void onAddNextPage(Fragment f, Class<?> cls, Bundle b);
 
     public FlipFragmentPagerHelperImpl(ViewPager viewPager, FragmentManager fragmentManager) {
         mViewPager = viewPager;
-        mAdapter = new FlipFragmentAdapter(viewPager.getContext(), fragmentManager);
+        mAdapter = new SingleFlipFragmentAdapter(viewPager.getContext(), fragmentManager);
 
         mViewPager.setAdapter(mAdapter);
     }

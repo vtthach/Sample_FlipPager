@@ -21,7 +21,7 @@ import dmt.hephaestus.sample.ui.fragment.WelcomeFragment;
 import dmt.hephaestus.transformer.FlipVerticalTransformer;
 import sample.dynamic_pager_adapter.R;
 
-public class FlipPagerActivity extends BaseActivity {
+public class MultipleFlipPagerActivity extends BaseActivity {
 
     @BindView(R.id.view_pager)
     ViewPager viewPager;
@@ -35,13 +35,13 @@ public class FlipPagerActivity extends BaseActivity {
     FragmentPagerHelper fragmentPagerHelper;
 
     public static Intent intentInstance(Context context) {
-        Intent intent = new Intent(context, FlipPagerActivity.class);
+        Intent intent = new Intent(context, MultipleFlipPagerActivity.class);
         return intent;
     }
 
     @Override
     public int getContentViewId() {
-        return R.layout.activity_flip_pager;
+        return R.layout.activity_multiple_flip_pager;
     }
 
     @Override
@@ -115,8 +115,5 @@ public class FlipPagerActivity extends BaseActivity {
         }
         fragmentPagerHelper.addNextPage(cls, b);
         fragmentPagerHelper.goToNextPage();
-
-//        fragmentPagerHelper.addPage(cls, b);
-//        fragmentPagerHelper.goToNextPage();
     }
 }

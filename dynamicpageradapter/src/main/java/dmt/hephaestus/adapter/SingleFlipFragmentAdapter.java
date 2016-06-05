@@ -16,7 +16,7 @@ import java.util.List;
  * Since:    6/3/2016
  * Time:     7:33 PM
  */
-public class FlipFragmentAdapter extends FragmentPagerAdapter {
+public class SingleFlipFragmentAdapter extends FragmentPagerAdapter {
 
     protected List<DynamicFragmentModel> fragmentItems = new ArrayList<>();
 
@@ -24,7 +24,7 @@ public class FlipFragmentAdapter extends FragmentPagerAdapter {
     private Context mContext;
     private int mCurrentPosition;
 
-    public FlipFragmentAdapter(Context context, FragmentManager fm) {
+    public SingleFlipFragmentAdapter(Context context, FragmentManager fm) {
         super(fm);
         mContext = context;
     }
