@@ -12,9 +12,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import dmt.hephaestus.sample.ui.activity.base.BaseActivity;
-import dmt.hephaestus.sample.ui.adapter.view.ViewItemPagerAdapter;
+import dmt.hephaestus.sample.util.view.ViewItemPagerAdapter;
 import sample.dynamic_pager_adapter.R;
-import dmt.hephaestus.sample.ui.adapter.view.ViewPagerHelper;
+import dmt.hephaestus.sample.util.view.ViewPagerHelper;
 
 public class ViewPagerActivity extends BaseActivity {
 

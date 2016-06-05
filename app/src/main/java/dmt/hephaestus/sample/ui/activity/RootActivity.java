@@ -26,7 +26,7 @@ public class RootActivity extends BaseActivity {
     @BindView(R.id.btn_view_adapter)
     Button btnViewAdapter;
     @BindView(R.id.brn_flip_fragment)
-    Button brnFlipFragment;
+    Button btnFlipFragment;
     @BindView(R.id.btn_horizontal_swipe_fragment)
     Button btnHorizontalSwipeFragment;
 
@@ -35,7 +35,7 @@ public class RootActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_root);
         ButterKnife.bind(this);
-        //btnHorizontalSwipeFragment.performClick();
+        btnFlipFragment.performClick();
     }
 
     @OnClick({R.id.btn_view_adapter, R.id.brn_flip_fragment, R.id.btn_horizontal_swipe_fragment})

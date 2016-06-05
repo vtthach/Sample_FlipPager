@@ -1,4 +1,4 @@
-package dmt.hephaestus.sample.ui.adapter.view;
+package dmt.hephaestus.sample.util.view;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
