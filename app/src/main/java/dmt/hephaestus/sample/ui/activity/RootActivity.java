@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import dmt.hephaestus.sample.ui.activity.base.BaseActivity;
 import dmt.hephaestus.sample.ui.activity.pager.FlipPagerActivity;
@@ -30,11 +29,16 @@ public class RootActivity extends BaseActivity {
     @BindView(R.id.btn_horizontal_swipe_fragment)
     Button btnHorizontalSwipeFragment;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public int getContentViewId() {
+        return R.layout.activity_root;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_root);
-        ButterKnife.bind(this);
+
         btnFlipFragment.performClick();
     }
 

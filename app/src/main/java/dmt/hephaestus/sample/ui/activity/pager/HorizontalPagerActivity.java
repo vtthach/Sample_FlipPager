@@ -9,9 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 import dmt.hephaestus.adapter.helper.HorizontalFragmentPagerHelper;
 import dmt.hephaestus.adapter.helper.HorizontalFragmentPagerHelperImpl;
 import dmt.hephaestus.sample.app.Constants;
@@ -25,13 +23,6 @@ import sample.dynamic_pager_adapter.R;
 
 public class HorizontalPagerActivity extends BaseActivity {
 
-
-    public static Intent intentInstance(Context context) {
-        Intent intent = new Intent(context, HorizontalPagerActivity.class);
-        return intent;
-    }
-
-
     @BindView(R.id.view_pager)
     ViewPager viewPager;
     @BindView(R.id.btn_back)
@@ -39,65 +30,29 @@ public class HorizontalPagerActivity extends BaseActivity {
     @BindView(R.id.btn_home)
     Button btnHome;
 
-    private Unbinder unbinder;
-    HorizontalFragmentPagerHelper horizontalPagerHelper;
+    HorizontalFragmentPagerHelper fragmentPagerHelper;
+
+    public static Intent intentInstance(Context context) {
+        Intent intent = new Intent(context, HorizontalPagerActivity.class);
+        return intent;
+    }
+
+    @Override
+    public int getContentViewId() {
+        return R.layout.activity_horizontal_swipe_pager;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_horizontal_swipe_pager);
-        unbinder = ButterKnife.bind(this);
 
         init();
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        unbinder.unbind();
-    }
-
-    private void init() {
-        viewPager.setPageTransformer(false, new ZoomOutSlideTransformer());
-        // Necessary or the pager will only have one extra page to show
-        // make this at least however many pages you can see
-        viewPager.setOffscreenPageLimit(3);
-
-        // Set margin for pages as a negative number, so a part of next and
-        // previous pages will be showed
-        viewPager.setPageMargin(-368);
-
-        horizontalPagerHelper = new HorizontalFragmentPagerHelperImpl(viewPager, getSupportFragmentManager()) {
-            @Override
-            public void onAddNextPage(Fragment f, Class<?> cls, Bundle b) {
-                ContainerFragment fm = (ContainerFragment) getFragmentAtPosition(viewPager.getCurrentItem() + 1);
-                fm.replaceFragment(cls, b);
-            }
-        };
-
-        addDefaultFragment(viewPager.getAdapter().getCount());
-        addDefaultFragment(viewPager.getAdapter().getCount());
-        addDefaultFragment(viewPager.getAdapter().getCount());
-        horizontalPagerHelper.goToPage(1);
-    }
-
-    private void addDefaultFragment(int index) {
-        Bundle b = new Bundle();
-        b.putInt(Constants.KEY_INDEX, index);
-        horizontalPagerHelper.addPage(ContainerFragment.class, b);
-    }
-
-    private void goToPreviousPage() {
-        horizontalPagerHelper.goToPreviousPage();
-    }
-
-    private void goToNextPage(Class<?> cls, Bundle b) {
-        addDefaultFragment(viewPager.getAdapter().getCount());
-        horizontalPagerHelper.addNextPage(cls, b);
-        horizontalPagerHelper.goToNextPage();
-    }
-
-    @OnClick({R.id.btn_back, R.id.btn_next_1, R.id.btn_next_2, R.id.btn_next_3})
+    @OnClick({R.id.btn_back,
+            R.id.btn_next_1,
+            R.id.btn_next_2,
+            R.id.btn_next_3})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_back:
@@ -117,6 +72,49 @@ public class HorizontalPagerActivity extends BaseActivity {
 
     @OnClick(R.id.btn_home)
     public void onClick() {
-        horizontalPagerHelper.goToPage(1);
+        fragmentPagerHelper.goToPage(1);
+    }
+
+    //----------------------------------------------------------------------------------------------
+    // private methods
+
+    private void init() {
+        viewPager.setPageTransformer(false, new ZoomOutSlideTransformer());
+        // Necessary or the pager will only have one extra page to show
+        // make this at least however many pages you can see
+        viewPager.setOffscreenPageLimit(3);
+
+        // Set margin for pages as a negative number, so a part of next and
+        // previous pages will be showed
+        viewPager.setPageMargin(-368);
+
+        fragmentPagerHelper = new HorizontalFragmentPagerHelperImpl(viewPager, getSupportFragmentManager()) {
+            @Override
+            public void onAddNextPage(Fragment f, Class<?> cls, Bundle b) {
+                ContainerFragment fm = (ContainerFragment) getFragmentAtPosition(viewPager.getCurrentItem() + 1);
+                fm.replaceFragment(cls, b);
+            }
+        };
+
+        addDefaultFragment(viewPager.getAdapter().getCount());
+        addDefaultFragment(viewPager.getAdapter().getCount());
+        addDefaultFragment(viewPager.getAdapter().getCount());
+        fragmentPagerHelper.goToPage(1);
+    }
+
+    private void addDefaultFragment(int index) {
+        Bundle b = new Bundle();
+        b.putInt(Constants.KEY_INDEX, index);
+        fragmentPagerHelper.addPage(ContainerFragment.class, b);
+    }
+
+    private void goToPreviousPage() {
+        fragmentPagerHelper.goToPreviousPage();
+    }
+
+    private void goToNextPage(Class<?> cls, Bundle b) {
+        addDefaultFragment(viewPager.getAdapter().getCount());
+        fragmentPagerHelper.addNextPage(cls, b);
+        fragmentPagerHelper.goToNextPage();
     }
 }

@@ -8,13 +8,11 @@ import android.view.View;
 import android.widget.Button;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 import dmt.hephaestus.sample.ui.activity.base.BaseActivity;
 import dmt.hephaestus.sample.util.view.ViewItemPagerAdapter;
-import sample.dynamic_pager_adapter.R;
 import dmt.hephaestus.sample.util.view.ViewPagerHelper;
+import sample.dynamic_pager_adapter.R;
 
 public class ViewPagerActivity extends BaseActivity {
 
@@ -31,22 +29,18 @@ public class ViewPagerActivity extends BaseActivity {
     Button btnNext;
 
 
-    private Unbinder unbinder;
     ViewPagerHelper viewPagerHelper = null;
+
+    @Override
+    public int getContentViewId() {
+        return R.layout.activity_view_item;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_item);
-        unbinder = ButterKnife.bind(this);
 
         init();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        unbinder.unbind();
     }
 
     private void init() {

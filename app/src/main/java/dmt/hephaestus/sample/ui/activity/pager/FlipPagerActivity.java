@@ -8,9 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 import dmt.hephaestus.adapter.helper.FlipFragmentPagerHelperImpl;
 import dmt.hephaestus.adapter.helper.FragmentPagerHelper;
 import dmt.hephaestus.sample.app.Constants;
@@ -24,11 +22,6 @@ import sample.dynamic_pager_adapter.R;
 
 public class FlipPagerActivity extends BaseActivity {
 
-    public static Intent intentInstance(Context context) {
-        Intent intent = new Intent(context, FlipPagerActivity.class);
-        return intent;
-    }
-
     @BindView(R.id.view_pager)
     ViewPager viewPager;
     @BindView(R.id.btn_back)
@@ -38,59 +31,48 @@ public class FlipPagerActivity extends BaseActivity {
     @BindView(R.id.btn_home)
     Button btnHome;
 
-    private Unbinder unbinder;
+    //HorizontalFragmentPagerHelper fragmentPagerHelper;
     FragmentPagerHelper fragmentPagerHelper;
+
+    public static Intent intentInstance(Context context) {
+        Intent intent = new Intent(context, FlipPagerActivity.class);
+        return intent;
+    }
+
+    @Override
+    public int getContentViewId() {
+        return R.layout.activity_flip_pager;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flip_pager);
-        unbinder = ButterKnife.bind(this);
 
         init();
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        unbinder.unbind();
-    }
-
-    private void init() {
-        viewPager.setPageTransformer(false, new FlipVerticalTransformer());
-
-        fragmentPagerHelper = new FlipFragmentPagerHelperImpl(viewPager, getSupportFragmentManager());
-
-        Bundle b = new Bundle();
-        b.putInt(Constants.KEY_INDEX, 0);
-        fragmentPagerHelper.addPage(BaseSampleFragment.class, b);
-    }
-
-    @OnClick({R.id.btn_back, R.id.btn_next, R.id.btn_next_1, R.id.btn_next_2, R.id.btn_next_3})
+    @OnClick({R.id.btn_back,
+            R.id.btn_next,
+            R.id.btn_next_1,
+            R.id.btn_next_2,
+            R.id.btn_next_3})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_back:
-                fragmentPagerHelper.goToPreviousPage();
+                goToPreviousPage();
                 break;
             case R.id.btn_next:
-                Bundle b = new Bundle();
-                b.putInt(Constants.KEY_INDEX, viewPager.getCurrentItem() + 1);
-
-                Class<?> cls = BaseSampleFragment.class;
-                fragmentPagerHelper.addPage(cls, b);
+                addDefaultFragment(viewPager.getAdapter().getCount());
                 fragmentPagerHelper.goToNextPage();
                 break;
             case R.id.btn_next_1:
-                fragmentPagerHelper.addPage(LoginFragment.class, null);
-                fragmentPagerHelper.goToNextPage();
+                goToNextPage(LoginFragment.class, null);
                 break;
             case R.id.btn_next_2:
-                fragmentPagerHelper.addPage(WelcomeFragment.class, null);
-                fragmentPagerHelper.goToNextPage();
+                goToNextPage(WelcomeFragment.class, null);
                 break;
             case R.id.btn_next_3:
-                fragmentPagerHelper.addPage(DefaultFlipFragment.class, null);
-                fragmentPagerHelper.goToNextPage();
+                goToNextPage(DefaultFlipFragment.class, null);
                 break;
         }
     }
@@ -99,4 +81,47 @@ public class FlipPagerActivity extends BaseActivity {
     public void onClick() {
         fragmentPagerHelper.goToPage(0);
     }
+
+    //----------------------------------------------------------------------------------------------
+    // private methods
+
+    private void init() {
+        viewPager.setPageTransformer(false, new FlipVerticalTransformer());
+
+        /*fragmentPagerHelper = new HorizontalFragmentPagerHelperImpl(viewPager, getSupportFragmentManager()) {
+            @Override
+            public void onAddNextPage(Fragment f, Class<?> cls, Bundle b) {
+                ContainerFragment fm = (ContainerFragment) getFragmentAtPosition(viewPager.getCurrentItem() + 1);
+                fm.replaceFragment(cls, b);
+            }
+        };*/
+        fragmentPagerHelper = new FlipFragmentPagerHelperImpl(viewPager, getSupportFragmentManager());
+
+        addDefaultFragment(viewPager.getAdapter().getCount());
+    }
+
+    private void addDefaultFragment(int index) {
+        Bundle b = new Bundle();
+        b.putInt(Constants.KEY_INDEX, index);
+
+        Class<?> cls = BaseSampleFragment.class;
+        fragmentPagerHelper.addPage(cls, b);
+    }
+
+    private void goToPreviousPage() {
+        fragmentPagerHelper.goToPreviousPage();
+    }
+
+    private void goToNextPage(Class<?> cls, Bundle b) {
+        //goToNextPage2(cls, b);
+        fragmentPagerHelper.addPage(cls, b);
+        fragmentPagerHelper.goToNextPage();
+    }
+
+    /*private void goToNextPage2(Class<?> cls, Bundle b) {
+        addDefaultFragment(viewPager.getAdapter().getCount());
+        fragmentPagerHelper.addNextPage(cls, b);
+        fragmentPagerHelper.goToNextPage();
+    }*/
+
 }
