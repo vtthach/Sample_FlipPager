@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Project:  and_exp
+ * Project:  hephaestus
  * Author:   Khuong Vo
  * Since:    5/18/2016
  * Time:     5:19 PM
@@ -89,19 +89,6 @@ public class HorizontalFragmentAdapter extends FragmentStatePagerAdapter {
         }
     }
 
-    /*public void removePageFrom(int position) {
-        // remove all items from current item to last item
-        if (isSynchronizeData
-                && position >= 0
-                && position + 1 < fragmentItems.size()) {
-            for (int i = fragmentItems.size() - 1; i > position; i--) {
-                fragmentItems.remove(i);
-            }
-
-            notifyDataSetChanged();
-        }
-    }*/
-
     @Override
     public void notifyDataSetChanged() {
         isSynchronizeData = false;
@@ -110,26 +97,8 @@ public class HorizontalFragmentAdapter extends FragmentStatePagerAdapter {
     }
 
     public void updatePositionIndex(int pos, int currentItem) {
-        if (currentItem > pos) {
-           /* List<DynamicFragmentModel> list = fragmentItems.subList(0, pos + 1);
-            //list.add(fragmentItems.get(currentItem));
-            //list.add(fragmentItems.get(currentItem + 1));
-            fragmentItems = list;
-            Bundle b = new Bundle();
-            b.putInt(Constants.KEY_INDEX, fragmentItems.size());
-            addPage(ContainerFragment.class, null);
-            notifyDataSetChanged();*/
-        } else if (currentItem <= pos) {
-            // do nothing
-        }
+        // do nothing
     }
-
-    /*public void updatePositionIndex(int pos, int currentItem) {
-        List<DynamicFragmentModel> list = fragmentItems.subList(0, pos + 1);
-        list.add(fragmentItems.get(currentItem));
-        fragmentItems = list;
-        notifyDataSetChanged();
-    }*/
 
     public Fragment getCurrentFragment() {
         Fragment f = fragmentItems.get(mCurrentPosition).getFragment();

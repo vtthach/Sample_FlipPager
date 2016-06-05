@@ -16,7 +16,7 @@ import sample.util.ActivityUtils;
 import sample.util.AnimationType;
 
 /**
- * Project:  and_exp
+ * Project:  hephaestus
  * Author:   Khuong Vo
  * Since:    5/18/2016
  * Time:     7:42 AM

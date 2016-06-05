@@ -1,7 +1,7 @@
 package dmt.hephaestus.sample.app;
 
 /**
- * Project:  and_exp
+ * Project:  hephaestus
  * Author:   Khuong Vo
  * Since:    5/18/2016
  * Time:     8:08 AM

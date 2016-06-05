@@ -9,7 +9,7 @@ import dmt.hephaestus.adapter.FlipFragmentAdapter;
 
 
 /**
- * Project:  and_exp
+ * Project:  hephaestus
  * Author:   Khuong Vo
  * Since:    5/19/2016
  * Time:     1:46 PM

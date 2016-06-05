@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class FlipFragmentAdapter extends FragmentPagerAdapter {
 
-    List<DynamicFragmentModel> fragmentItems = new ArrayList<>();
+    protected List<DynamicFragmentModel> fragmentItems = new ArrayList<>();
 
     private boolean mIsSynchronizeData = false;
     private Context mContext;
@@ -53,7 +53,6 @@ public class FlipFragmentAdapter extends FragmentPagerAdapter {
         return f;
     }
 
-
     @Override
     public void setPrimaryItem(ViewGroup container, int position, Object object) {
         mCurrentPosition = position;
@@ -63,6 +62,11 @@ public class FlipFragmentAdapter extends FragmentPagerAdapter {
         removePageFrom(position);
     }
 
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        super.destroyItem(container, position, object);
+        fragmentItems.get(position).setFragment(null);
+    }
 
     public void addPage(Class<?> cls, Bundle b) {
         DynamicFragmentModel fragmentItem = new DynamicFragmentModel(cls, null, b);
@@ -75,7 +79,7 @@ public class FlipFragmentAdapter extends FragmentPagerAdapter {
                 && position >= 0
                 && position + 1 < fragmentItems.size()) {
             for (int i = fragmentItems.size() - 1; i > position; i--) {
-                fragmentItems.remove(i);
+                // fragmentItems.remove(i);
             }
 
             notifyDataSetChanged();
@@ -90,10 +94,10 @@ public class FlipFragmentAdapter extends FragmentPagerAdapter {
     }
 
     public void updatePositionIndex(int pos, int currentItem) {
-        List<DynamicFragmentModel> list = fragmentItems.subList(0, pos);
+        /*List<DynamicFragmentModel> list = fragmentItems.subList(0, pos + 1);
         list.add(fragmentItems.get(currentItem));
         fragmentItems = list;
-        notifyDataSetChanged();
+        notifyDataSetChanged();*/
     }
 
     public Fragment getCurrentFragment() {

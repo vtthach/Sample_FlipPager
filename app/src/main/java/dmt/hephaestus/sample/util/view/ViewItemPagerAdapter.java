@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 /**
- * Project:  and_exp
+ * Project:  hephaestus
  * Author:   Khuong Vo
  * Since:    5/18/2016
  * Time:     1:47 PM

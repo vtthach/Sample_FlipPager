@@ -11,7 +11,7 @@ import sample.dynamic_pager_adapter.R;
 import sample.util.LibUtils;
 
 /**
- * Project:  and_exp
+ * Project:  hephaestus
  * Author:   Khuong Vo
  * Since:    5/18/2016
  * Time:     2:06 PM

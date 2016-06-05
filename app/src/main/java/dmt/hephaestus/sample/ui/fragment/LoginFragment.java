@@ -10,7 +10,7 @@ import dmt.hephaestus.sample.ui.activity.base.BaseFragment;
 import sample.dynamic_pager_adapter.R;
 
 /**
- * Project:  and_exp
+ * Project:  hephaestus
  * Author:   Khuong Vo
  * Since:    5/24/2016
  * Time:     7:13 AM
