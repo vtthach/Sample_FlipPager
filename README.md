@@ -3,6 +3,11 @@
 
 ###Release Notes:
 
+####Version 1.0.2
+
+* add MultipleFlipFragment class
+* rename FragmentPagerHelperImpl class to SingleFlipFragmentPagerHelperImpl class
+
 ####Version 1.0.1
 
 * fix flip pager bug: wrong fragment index
