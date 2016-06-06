@@ -46,7 +46,7 @@ public class MultipleFlipFragmentAdapter extends FragmentPagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         Fragment f = (Fragment) super.instantiateItem(container, position);
-        if (position >= fragmentItems.size()) {
+        if (fragmentItems.size() > 0 && fragmentItems.size() > position) {
             DynamicFragmentModel fragmentItem = fragmentItems.get(position);
             fragmentItem.setFragment(f);
         }
