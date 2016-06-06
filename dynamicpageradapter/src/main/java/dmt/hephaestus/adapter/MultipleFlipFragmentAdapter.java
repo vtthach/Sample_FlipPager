@@ -89,7 +89,7 @@ public class MultipleFlipFragmentAdapter extends FragmentPagerAdapter {
     }
 
     public void updatePositionIndex(int pos, int currentItem) {
-        List<DynamicFragmentModel> list = fragmentItems.subList(0, pos);
+        List<DynamicFragmentModel> list = fragmentItems.subList(0, pos + 1);
         list.add(fragmentItems.get(currentItem));
         fragmentItems = list;
         notifyDataSetChanged();
