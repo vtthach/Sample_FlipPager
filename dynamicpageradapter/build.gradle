@@ -1,6 +1,6 @@
 def libraryGroupId = 'dmt'
-def libraryArtifactId = 'hephaestus'//replace with your library's name
-def libraryVersion = '1.0.2'
+def libraryArtifactId = 'hephaestus'
+def libraryVersion = '1.0.3-SNAPSHOT'
 
 buildscript {
     repositories {
@@ -18,7 +18,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.1.0'
         //Check for the latest version here: http://plugins.gradle.org/plugin/com.jfrog.artifactory
-        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4+"
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.4.0"
     }
 
 
@@ -99,7 +99,7 @@ artifactory {
     contextUrl = artifactory_contextUrl
     publish {
         repository {
-            repoKey = 'libs-release-local'
+            repoKey = libraryVersion.endsWith('SNAPSHOT') ? 'libs-snapshot-local' : 'libs-release-local'
             username = artifactory_username
             password = artifactory_password
             maven = true

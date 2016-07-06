@@ -9,7 +9,7 @@ import android.view.View;
  * Time:     3:44 PM
  */
 public class ZoomOutSlideTransformer implements ViewPager.PageTransformer {
-    private static final float MIN_SCALE = 0.93f;
+    private static final float MIN_SCALE = 0.961f;
     private static final float MIN_ALPHA = 0.60f;
 
     public void transformPage(final View view, float position) {
