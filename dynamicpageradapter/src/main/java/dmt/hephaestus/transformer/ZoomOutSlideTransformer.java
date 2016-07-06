@@ -10,7 +10,7 @@ import android.view.View;
  */
 public class ZoomOutSlideTransformer implements ViewPager.PageTransformer {
     private static final float MIN_SCALE = 0.961f;
-    private static final float MIN_ALPHA = 0.60f;
+    private static final float MIN_ALPHA = 0.800f;
 
     public void transformPage(final View view, float position) {
         if (position < -1.5) { // [-Infinity, -1.5)
