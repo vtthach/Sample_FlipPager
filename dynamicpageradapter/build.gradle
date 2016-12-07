@@ -102,8 +102,6 @@ artifactory {
             repoKey = libraryVersion.endsWith('SNAPSHOT') ? 'libs-snapshot-local' : 'libs-release-local'
             username = artifactory_username
             password = artifactory_password
-            maven = true
-
         }
         defaults {
             publications('aar')
