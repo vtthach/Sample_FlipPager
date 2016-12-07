@@ -3,6 +3,10 @@
 
 ###Release Notes:
 
+####Version 1.0.3
+
+* update card style guideline
+
 ####Version 1.0.2
 
 * add MultipleFlipFragment class

@@ -27,6 +27,13 @@ allprojects {
                 password = artifactory_password
             }
         }
+        maven {
+            url 'http://192.168.200.150:8081/artifactory/libs-snapshot-local'
+            credentials {
+                username = artifactory_username
+                password = artifactory_password
+            }
+        }
     }
 }
 
