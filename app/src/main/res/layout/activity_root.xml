@@ -36,6 +36,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/LBL_HORIZONTAL_SWIPE_FRAGMENT_ADAPTER" />
+
+        <Button
+            android:id="@+id/btn_linked_list_pager"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/LBL_LINKED_LIST_PAGER" />
     </LinearLayout>
 
 </FrameLayout>

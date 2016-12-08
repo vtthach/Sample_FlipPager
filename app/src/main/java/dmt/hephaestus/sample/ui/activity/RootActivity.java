@@ -9,6 +9,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import dmt.hephaestus.sample.ui.activity.base.BaseActivity;
 import dmt.hephaestus.sample.ui.activity.pager.HorizontalPagerActivity;
+import dmt.hephaestus.sample.ui.activity.pager.LinkedListFlipPagerActivity;
 import dmt.hephaestus.sample.ui.activity.pager.MultipleFlipPagerActivity;
 import dmt.hephaestus.sample.ui.activity.pager.SingleFlipPagerActivity;
 import dmt.hephaestus.sample.ui.activity.pager.ViewPagerActivity;
@@ -48,7 +49,8 @@ public class RootActivity extends BaseActivity {
     @OnClick({R.id.btn_view_adapter,
             R.id.btn_single_flip_fragment,
             R.id.btn_multiple_flip_fragment,
-            R.id.btn_horizontal_swipe_fragment})
+            R.id.btn_horizontal_swipe_fragment,
+            R.id.btn_linked_list_pager})
     public void onClick(View view) {
         Intent intent = null;
 
@@ -64,6 +66,9 @@ public class RootActivity extends BaseActivity {
                 break;
             case R.id.btn_horizontal_swipe_fragment:
                 intent = HorizontalPagerActivity.intentInstance(RootActivity.this);
+                break;
+            case R.id.btn_linked_list_pager:
+                intent = LinkedListFlipPagerActivity.intentInstance(RootActivity.this);
                 break;
         }
 

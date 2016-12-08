@@ -9,4 +9,5 @@
     <string name="LBL_VIEW_ADAPTER">View Adapter</string>
     <string name="LBL_SINGLE_FLIP_FRAGMENT_ADAPTER">Single Flip Fragment Adapter</string>
     <string name="LBL_MULTIPLE_FLIP_FRAGMENT_ADAPTER">Multiple Flip Fragment Adapter</string>
+    <string name="LBL_LINKED_LIST_PAGER">Linked list flip pager</string>
 </resources>
