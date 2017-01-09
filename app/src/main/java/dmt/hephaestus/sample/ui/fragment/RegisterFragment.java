@@ -2,6 +2,7 @@ package dmt.hephaestus.sample.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,15 @@ public class RegisterFragment extends BaseFragment {
         init();
     }
 
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.i("vtt", "RegisterFragment onDestroy");
+    }
+
     protected void init() {
+        Log.i("vtt", "RegisterFragment init");
+
     }
 }

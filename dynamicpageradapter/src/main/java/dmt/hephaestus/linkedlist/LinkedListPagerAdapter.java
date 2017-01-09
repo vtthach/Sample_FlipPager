@@ -99,12 +99,16 @@ public class LinkedListPagerAdapter extends FragmentStatePagerAdapter {
     public void setPrimaryItem(ViewGroup container, int position, Object object) {
         int oldCenterPosition = centerItem.getCenterPosition();
         if (position != oldCenterPosition) {
+            LinkedListDynamicFragmentModel newCenterItem;
             if (position > oldCenterPosition) {
                 // New center item is right
-                centerItem = centerItem.getNext();
+                newCenterItem = centerItem.getNext();
             } else {
                 // New center item is left
-                centerItem = centerItem.getPrevious();
+                newCenterItem = centerItem.getPrevious();
+            }
+            if (newCenterItem != null) {
+                centerItem = newCenterItem;
             }
             centerItem.setCenterPosition(position);
         }

@@ -3,6 +3,7 @@ package dmt.hephaestus.sample.ui.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,10 +40,17 @@ public class ContainerFragment extends BaseFragment {
         init();
     }
 
-    protected void init() {
-        //layoutCard.setAlpha(0.6f);
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.i("vtt", "ContainerFragment onDestroy");
     }
 
+    protected void init() {
+        Log.i("vtt", "ContainerFragment init");
+
+    }
     public void replaceFragment(Class<?> cls, Bundle b) {
         Fragment f = Fragment.instantiate(getActivity(), cls.getName(), b);
         getChildFragmentManager().beginTransaction().replace(R.id.layout_container, f).commitAllowingStateLoss();
